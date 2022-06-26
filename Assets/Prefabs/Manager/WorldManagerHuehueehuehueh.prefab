@@ -54,3 +54,5 @@ MonoBehaviour:
   callEvent: {fileID: 6377595268926490634, guid: 36de40d2ea0f74b48b45428c994f7add, type: 3}
   uiClickedHandler: {fileID: 0}
   amountOfCars: 5
+  carCanvas: {fileID: 0}
+  carImagePrefab: {fileID: 1834588738901805157, guid: b0ea85dc842212349bc3042bba033953, type: 3}

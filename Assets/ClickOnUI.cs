@@ -33,6 +33,16 @@ public class ClickOnUI : MonoBehaviour, IPointerDownHandler
             case "AnswerButton":
                 uiClickedHandler.AnswerCall();
                 break;
+            case "CarImage":
+                if (clickedObj.TryGetComponent(out CarImageAndStatus carImage))
+                {
+                    carImage.CarImageClicked();
+                }
+                else
+                {
+                    Debug.LogError("CarImageAndStatus not found");
+                }
+                break;
             default:
                 break;
         }

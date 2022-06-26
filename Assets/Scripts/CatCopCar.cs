@@ -22,6 +22,9 @@ public class CatCopCar : MonoBehaviour
 
     [SerializeField]private List<Vector3> RandomPositionsToPatrolTo;
 
+    [SerializeField] private SpriteRenderer highlighSprite;
+    
+
     public CallWithTimer CurrentCall { get; set; }
     public bool bIsHelpingSomeone { get; set; } = false;
 
@@ -35,7 +38,16 @@ public class CatCopCar : MonoBehaviour
     {
         ShouldStartPatrolling();
         ShouldReturnAfterPatrol();
+        ShouldReturnToHospital();
 
+        if (bDrawPath)
+        {
+            DrawPath();
+        }
+    }
+
+    private void ShouldReturnToHospital()
+    {
         if (bIsReturningToHospital)
         {
             float distance = Vector3.Distance(transform.position, targetDest);
@@ -51,11 +63,6 @@ public class CatCopCar : MonoBehaviour
                     Destroy(CurrentCall.gameObject);
                 }
             }
-        }
-
-        if (bDrawPath)
-        {
-            DrawPath();
         }
     }
 
@@ -148,5 +155,23 @@ public class CatCopCar : MonoBehaviour
         yield return new WaitForSeconds(timeToWait);
         ReturnToHospital();
     }
+    
+    public void SetCarSprite(/*Sprite sprite*/ Color color)
+    {
+        /*GetComponent<SpriteRenderer>().sprite = sprite;*/
+        
+        GetComponentInChildren<SpriteRenderer>().color = color;
+    }
+    
+    public Color GetCarSprite()
+    {
+        /*GetComponent<SpriteRenderer>().sprite = sprite;*/
+        
+        return GetComponentInChildren<SpriteRenderer>().color;
+    }
 
+    public void SetIsHighlighted(bool bIsHighlighted)
+    {
+        highlighSprite.gameObject.SetActive(bIsHighlighted);
+    }
 }

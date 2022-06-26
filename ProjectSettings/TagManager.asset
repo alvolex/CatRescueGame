@@ -7,6 +7,7 @@ TagManager:
   - UI
   - AnswerButton
   - CopCar
+  - CarImage
   layers:
   - Default
   - TransparentFX

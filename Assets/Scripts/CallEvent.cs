@@ -12,7 +12,6 @@ public class CallEvent : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("TRIGGER ENTERED");
         if (collision.gameObject.TryGetComponent(out CatCopCar copCar) && !copCar.bIsHelpingSomeone)
         {
             copCar.IsHelping();
