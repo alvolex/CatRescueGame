@@ -11,6 +11,9 @@ public class SuperCursedGameManager : MonoBehaviour
     [SerializeField] private List<GameObject> EventPositions;
     [SerializeField] private CallEvent callEvent;
 
+    [SerializeField] private UIClickedHandler uiClickedHandler;
+    
+
     private Camera mainCamera;
 
     void Start()
@@ -19,9 +22,9 @@ public class SuperCursedGameManager : MonoBehaviour
         Instantiate(CatCopCar, Vector3.zero, Quaternion.identity);
 
         mainCamera = Camera.main;
-
-        int index = Random.Range(0, EventPositions.Count);
-        Instantiate(callEvent, EventPositions[index].transform.position, Quaternion.identity);
+        
+        //Subscribe to events
+        uiClickedHandler.OnCallAnswered += OnCallAnswered;
     }
 
     // Update is called once per frame
@@ -51,6 +54,13 @@ public class SuperCursedGameManager : MonoBehaviour
                 }
             }
         }
-
+    }
+    
+    private void OnCallAnswered(float time, CallWithTimer callWithTimer)
+    {
+        int index = Random.Range(0, EventPositions.Count);
+        CallEvent call = Instantiate(callEvent, EventPositions[index].transform.position, Quaternion.identity);
+        call.CallThatIsConnectedToThis = callWithTimer;
+        call.DestroyAfterTime(time);
     }
 }

@@ -7,15 +7,7 @@ using UnityEngine.AI;
 public class MoveToTarget : MonoBehaviour
 {
     [SerializeField] private GameObject CubeToSpawn;
-    
-    void Start()
-    {
-    }
-    
-    void Update()
-    {
-        
-    }
+
     
     void OnMouseDown()
     {
