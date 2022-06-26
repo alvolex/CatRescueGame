@@ -225,11 +225,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 589b9cd6af42feb48ab4e382f5d8e2cc, type: 3}
---- !u!1 &265217770 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1063090442753913731, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-  m_PrefabInstance: {fileID: 2945240042159909571}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &367956827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,6 +1066,17 @@ Transform:
   m_Father: {fileID: 165225732}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 95.357, z: 0}
+--- !u!114 &1341621735 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7950979924346205567, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
+  m_PrefabInstance: {fileID: 2945240042159909571}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de306e9b498ef2e4a9fb967ce11c0a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1344650572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,42 +1511,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2945240043306909655, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -257
-      objectReference: {fileID: 0}
-    - target: {fileID: 4596223272376710511, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4596223272376710511, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4596223272376710511, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 265217770}
-    - target: {fileID: 4596223272376710511, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4596223272376710511, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 4596223272376710511, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4596223272376710511, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7646201256989555291, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: missionTimeToshowLowPrio
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
 --- !u!114 &2945240042159909572 stripped
@@ -1569,6 +1539,10 @@ PrefabInstance:
       propertyPath: carCanvas
       value: 
       objectReference: {fileID: 1379004310}
+    - target: {fileID: 8327939384990006187, guid: 67f9cc46586eb9c4aa2306b2d2a423a8, type: 3}
+      propertyPath: managerCanvas
+      value: 
+      objectReference: {fileID: 1341621735}
     - target: {fileID: 8327939384990006187, guid: 67f9cc46586eb9c4aa2306b2d2a423a8, type: 3}
       propertyPath: uiClickedHandler
       value: 

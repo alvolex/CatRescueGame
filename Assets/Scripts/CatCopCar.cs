@@ -90,12 +90,16 @@ public class CatCopCar : MonoBehaviour
             float distance = Vector3.Distance(transform.position, targetDest);
             if (distance < 1)
             {
+                if (bIsHelpingSomeone)
+                {
+                    OnGainedPoints?.Invoke();
+                }
+                
                 bIsMovingToTarget = false;
                 bIsPatrolling = false;
                 bIsReturningToHospital = false;
                 bIsHelpingSomeone = false;
                 OnActionChanged?.Invoke(CarActions.Idle);
-                OnGainedPoints?.Invoke();
 
                 if (CurrentCall != null)
                 {
