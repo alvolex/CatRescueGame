@@ -11,6 +11,10 @@ public class CarImageAndStatus : MonoBehaviour
     
     [SerializeField] private Image highlightImage;
     [SerializeField] private Image carAction;
+
+    [SerializeField] private Sprite movingToTargetSprite;
+    [SerializeField] private Sprite isHelpingSomeoneSprite;
+    
     
     public delegate void CarImageClickedDelegate(CatCopCar car);
     public CarImageClickedDelegate OnCarImageClicked; 
@@ -38,13 +42,19 @@ public class CarImageAndStatus : MonoBehaviour
         switch (currentaction)
         {
             case CarActions.MovingToTarget:
-                carAction.color = Color.green;
+                /*carAction.color = Color.green;*/
+                carAction.enabled = true;
+                carAction.sprite = movingToTargetSprite;
                 break;
             case CarActions.IsHelpingSomeone:
-                carAction.color = Color.red;
+                /*carAction.color = Color.red;*/
+                carAction.enabled = true;
+                carAction.sprite = isHelpingSomeoneSprite;
                 break;
             case CarActions.Idle:
-                carAction.color = Color.white;
+                /*carAction.color = Color.white;*/
+                carAction.sprite = null;
+                carAction.enabled = false;
                 break;
             default:
                 break;

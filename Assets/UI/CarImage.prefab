@@ -129,7 +129,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3351504155687759858}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -246,3 +246,5 @@ MonoBehaviour:
   carImage: {fileID: 7884842350131787558}
   highlightImage: {fileID: 3931636634603996361}
   carAction: {fileID: 1379250464752102954}
+  movingToTargetSprite: {fileID: -168802611, guid: 506867f464b5704489656311a6c3a2d1, type: 3}
+  isHelpingSomeoneSprite: {fileID: 2060575125, guid: 506867f464b5704489656311a6c3a2d1, type: 3}
