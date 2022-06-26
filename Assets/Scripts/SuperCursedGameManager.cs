@@ -12,16 +12,18 @@ public class SuperCursedGameManager : MonoBehaviour
 {
     [SerializeField] private WorldMap WorldMap;
     [SerializeField] private CatCopCar CatCopCar;
-    
-    [SerializeField] private CatCopCar CurrentlySelectedCopCar; //Only serialized for debugging
 
     [SerializeField] private List<GameObject> EventPositions;
-    [SerializeField] private CallEvent callEvent;
+    [SerializeField] private CallEvent callEvent; //Not actually an event, it's the visual representation of where we need to pick someone up
 
     [SerializeField] private UIClickedHandler uiClickedHandler;
 
+    [Header("Car stuff")]
     [SerializeField] private int amountOfCars = 5;
+    [SerializeField] private CatCopCar CurrentlySelectedCopCar; //Only serialized for debugging
     
+    [SerializeField] List<Sprite> carSprites;
+
     //For the car selection menu
     [SerializeField] private Canvas carCanvas;
     [SerializeField] private CarImageAndStatus carImagePrefab;
@@ -44,11 +46,11 @@ public class SuperCursedGameManager : MonoBehaviour
         for (int i = 0; i < amountOfCars; i++)
         {
             var car = Instantiate(CatCopCar, Vector3.zero, Quaternion.identity);
-            car.SetCarSprite(Random.ColorHSV());
+            car.SetCarSprite(carSprites[i]);
             
             var carImage = Instantiate(carImagePrefab, carCanvas.transform, false);
             carImage.SetCarRef(car);
-            carImage.SetCarSprite(car.GetCarSprite());
+            carImage.SetCarSprite(carSprites[i]/*car.GetCarSprite()*/);
             carImage.OnCarImageClicked += OnCarImageClicked;
         }
     }
@@ -105,11 +107,11 @@ public class SuperCursedGameManager : MonoBehaviour
         }
     }
     
-    private void OnCallAnswered(float time, CallWithTimer callWithTimer, Color catColor)
+    private void OnCallAnswered(float time, CallWithTimer callWithTimer, /*Color catColor*/ Sprite catSprite)
     {
         int index = Random.Range(0, EventPositions.Count);
         CallEvent eventInWorld = Instantiate(callEvent, EventPositions[index].transform.position, Quaternion.identity);
-        eventInWorld.SetCatImage(catColor);
+        eventInWorld.SetCatImage(/*catColor*/catSprite);
         eventInWorld.CallThatIsConnectedToThis = callWithTimer;
         eventInWorld.DestroyAfterTime(time);
     }

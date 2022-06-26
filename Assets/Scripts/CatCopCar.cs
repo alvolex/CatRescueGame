@@ -30,6 +30,7 @@ public class CatCopCar : MonoBehaviour
 
     [SerializeField]private List<Vector3> RandomPositionsToPatrolTo;
 
+    [SerializeField] private SpriteRenderer carSprite;
     [SerializeField] private SpriteRenderer highlighSprite;
     
 
@@ -187,11 +188,12 @@ public class CatCopCar : MonoBehaviour
         ReturnToHospital();
     }
     
-    public void SetCarSprite(/*Sprite sprite*/ Color color)
+    public void SetCarSprite(Sprite sprite /*Color color*/)
     {
-        /*GetComponent<SpriteRenderer>().sprite = sprite;*/
+        carSprite.sprite = sprite;
+        //GetComponent<SpriteRenderer>().sprite = sprite;
         
-        GetComponentInChildren<SpriteRenderer>().color = color;
+        /*GetComponentInChildren<SpriteRenderer>().color = color;*/
     }
     
     public Color GetCarSprite()

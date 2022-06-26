@@ -743,6 +743,14 @@ MonoBehaviour:
   callsQueueCanvas: {fileID: 4582243581164680032}
   minTimeBetweenCalls: 2
   maxTimeBetweenCalls: 5
+  catSprites:
+  - {fileID: 26608966, guid: 8807111810fbcf042a3a3302b9dce2d8, type: 3}
+  - {fileID: -1305524461, guid: 8807111810fbcf042a3a3302b9dce2d8, type: 3}
+  - {fileID: -1422750187, guid: 8807111810fbcf042a3a3302b9dce2d8, type: 3}
+  - {fileID: -412018011, guid: 8807111810fbcf042a3a3302b9dce2d8, type: 3}
+  - {fileID: 1664351269, guid: 8807111810fbcf042a3a3302b9dce2d8, type: 3}
+  - {fileID: -1097215704, guid: 8807111810fbcf042a3a3302b9dce2d8, type: 3}
+  - {fileID: 1994000536, guid: 8807111810fbcf042a3a3302b9dce2d8, type: 3}
 --- !u!1 &2945240043306909648
 GameObject:
   m_ObjectHideFlags: 0

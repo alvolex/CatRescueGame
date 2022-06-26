@@ -15,10 +15,10 @@ public class CarImageAndStatus : MonoBehaviour
     public delegate void CarImageClickedDelegate(CatCopCar car);
     public CarImageClickedDelegate OnCarImageClicked; 
 
-    public void SetCarSprite(/*Sprite sprite*/ Color color)
+    public void SetCarSprite(Sprite sprite /*Color color*/)
     {
-        /*carImage.sprite = sprite;*/
-        carImage.color = color;
+        carImage.sprite = sprite;
+        /*carImage.color = color;*/
     }
 
     public void CarImageClicked()

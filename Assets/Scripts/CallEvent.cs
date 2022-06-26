@@ -37,11 +37,12 @@ public class CallEvent : MonoBehaviour
         Destroy(gameObject);
     }
     
-    public void SetCatImage(Color color)
+    public void SetCatImage(/*Color color*/ Sprite sprite)
     {
         if (catImage != null)
         {
-            catImage.color = color; 
+            /*catImage.color = color; */
+            catImage.sprite = sprite; 
         }
     }
 }
