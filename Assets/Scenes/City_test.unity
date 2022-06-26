@@ -3497,6 +3497,17 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 6889152122615900708, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
   m_PrefabInstance: {fileID: 1829059060}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &720319453 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7950979924346205567, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
+  m_PrefabInstance: {fileID: 1829059060}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de306e9b498ef2e4a9fb967ce11c0a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &762306820
 GameObject:
   m_ObjectHideFlags: 0
@@ -7702,14 +7713,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1063090442753913731, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2349120340503323896, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2945240042262397676, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
       propertyPath: m_Name
       value: GameUI
@@ -7798,21 +7801,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4582243581164680032, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
+    - target: {fileID: 3130938290714063330, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 75518775600577893, guid: 8bdb7399c06770c48a9b33ab8ae7481d, type: 2}
+    - target: {fileID: 3130938290714063330, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7501965243698422962, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8014542765730541775, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 247
-      objectReference: {fileID: 0}
-    - target: {fileID: 8668463369382291346, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 125
+    - target: {fileID: 8562839354765227646, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 75518775600577893, guid: 8bdb7399c06770c48a9b33ab8ae7481d, type: 2}
+    - target: {fileID: 8562839354765227646, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
@@ -9320,6 +9323,10 @@ PrefabInstance:
       propertyPath: carCanvas
       value: 
       objectReference: {fileID: 719753707}
+    - target: {fileID: 8327939384990006187, guid: 67f9cc46586eb9c4aa2306b2d2a423a8, type: 3}
+      propertyPath: managerCanvas
+      value: 
+      objectReference: {fileID: 720319453}
     - target: {fileID: 8327939384990006187, guid: 67f9cc46586eb9c4aa2306b2d2a423a8, type: 3}
       propertyPath: uiClickedHandler
       value: 
