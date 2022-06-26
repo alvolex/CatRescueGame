@@ -24,6 +24,9 @@ public class UIClickedHandler : MonoBehaviour
     [SerializeField] private float maxTimeToFinishMission = 35f;
 
     [SerializeField] private List<Sprite> catSprites;
+    
+    public delegate void LostPointsDelegate();
+    public LostPointsDelegate OnLostCustomer;
 
     struct CatCall
     {
@@ -59,7 +62,7 @@ public class UIClickedHandler : MonoBehaviour
         
         /*newCall.SetCatImage(catInfo.Color);*/
         newCall.SetCatImage(catInfo.CatSprite);
-        newCall.HandleTimer(catInfo.TimeToCompleteMission);
+        newCall.HandleTimer(catInfo.TimeToCompleteMission, OnLostCustomer);
 
         OnCallAnswered.Invoke(catInfo.TimeToCompleteMission, newCall, catInfo.CatSprite);
         recievingCallCanvas.gameObject.SetActive(false);
@@ -76,6 +79,10 @@ public class UIClickedHandler : MonoBehaviour
         }
     }
 
+    public void StopRecievingCalls()
+    {
+        StopAllCoroutines();
+    }
 
     IEnumerator RecieveCall()
     {
@@ -102,6 +109,7 @@ public class UIClickedHandler : MonoBehaviour
         {
             var cat = CallsQueue.Dequeue();
             Destroy(cat.objectContainingImage);
+            OnLostCustomer?.Invoke();
         }
 
         StartCoroutine(RecieveCall());

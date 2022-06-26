@@ -17,6 +17,7 @@ public class SuperCursedGameManager : MonoBehaviour
     [SerializeField] private CallEvent callEvent; //Not actually an event, it's the visual representation of where we need to pick someone up
 
     [SerializeField] private UIClickedHandler uiClickedHandler;
+    [SerializeField] private Manager managerCanvas;
 
     [Header("Car stuff")]
     [SerializeField] private int amountOfCars = 5;
@@ -27,6 +28,9 @@ public class SuperCursedGameManager : MonoBehaviour
     //For the car selection menu
     [SerializeField] private Canvas carCanvas;
     [SerializeField] private CarImageAndStatus carImagePrefab;
+
+    [SerializeField] private int score = 0;
+    [SerializeField] private int customersDelivered = 0;
 
     private Camera mainCamera;
 
@@ -39,6 +43,7 @@ public class SuperCursedGameManager : MonoBehaviour
         
         //Subscribe to events
         uiClickedHandler.OnCallAnswered += OnCallAnswered;
+        uiClickedHandler.OnLostCustomer += OnLostPoints;
     }
 
     private void CreateCars()
@@ -47,11 +52,30 @@ public class SuperCursedGameManager : MonoBehaviour
         {
             var car = Instantiate(CatCopCar, Vector3.zero, Quaternion.identity);
             car.SetCarSprite(carSprites[i]);
+            car.OnGainedPoints += OnGainedPoints;
             
             var carImage = Instantiate(carImagePrefab, carCanvas.transform, false);
             carImage.SetCarRef(car);
             carImage.SetCarSprite(carSprites[i]/*car.GetCarSprite()*/);
             carImage.OnCarImageClicked += OnCarImageClicked;
+        }
+    }
+
+    private void OnGainedPoints()
+    {
+        score++;
+        customersDelivered++;
+    }
+    
+    private void OnLostPoints()
+    {
+        score--;
+
+        if (score < 0)
+        {
+            //Game over
+            uiClickedHandler.StopRecievingCalls();
+            managerCanvas.RestartText("You disappoint meow..!\n" + "You delivered " + customersDelivered + " customers..\n" + "(Press the checkmark if you'd like to try again.)");
         }
     }
 

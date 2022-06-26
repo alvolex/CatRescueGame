@@ -17,12 +17,12 @@ public class CallWithTimer : MonoBehaviour
         StopAllCoroutines();
     }
     
-    public void HandleTimer(float timeToCompleteMission)
+    public void HandleTimer(float timeToCompleteMission, UIClickedHandler.LostPointsDelegate lostPointsDelegate)
     {
-        StartCoroutine(UpdateTimerSlider(timeToCompleteMission));
+        StartCoroutine(UpdateTimerSlider(timeToCompleteMission, lostPointsDelegate));
     }
 
-    IEnumerator UpdateTimerSlider(float timeToCompleteMission)
+    IEnumerator UpdateTimerSlider(float timeToCompleteMission, UIClickedHandler.LostPointsDelegate lostPointsDelegate)
     {
         float timeElapsed = 0;
 
@@ -37,6 +37,8 @@ public class CallWithTimer : MonoBehaviour
 
             yield return null;
         }
+        lostPointsDelegate?.Invoke();
+        
         Destroy(gameObject);
     }
 
