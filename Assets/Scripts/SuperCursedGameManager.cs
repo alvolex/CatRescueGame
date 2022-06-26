@@ -47,7 +47,7 @@ public class SuperCursedGameManager : MonoBehaviour
             car.SetCarSprite(Random.ColorHSV());
             
             var carImage = Instantiate(carImagePrefab, carCanvas.transform, false);
-            carImage.CarRef = car;
+            carImage.SetCarRef(car);
             carImage.SetCarSprite(car.GetCarSprite());
             carImage.OnCarImageClicked += OnCarImageClicked;
         }

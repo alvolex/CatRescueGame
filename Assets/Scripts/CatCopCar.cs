@@ -27,6 +27,10 @@ public class CatCopCar : MonoBehaviour
 
     public CallWithTimer CurrentCall { get; set; }
     public bool bIsHelpingSomeone { get; set; } = false;
+    
+    //create event without parameters
+    public delegate void CarSelectedDelegate();
+    public CarSelectedDelegate OnCarSelected; 
 
     private void Start()
     {
@@ -173,5 +177,6 @@ public class CatCopCar : MonoBehaviour
     public void SetIsHighlighted(bool bIsHighlighted)
     {
         highlighSprite.gameObject.SetActive(bIsHighlighted);
+        OnCarSelected.Invoke();
     }
 }
