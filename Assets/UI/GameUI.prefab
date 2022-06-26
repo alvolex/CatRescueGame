@@ -246,15 +246,36 @@ MonoBehaviour:
   catName: {fileID: 4116202685524224737}
   catText: {fileID: 3130938290714063330}
   Names:
-  - Koda
-  - Moxie
+  - Sir Meow
+  - Dog Catson
+  - Catzilla
+  - Purrito
+  - Meowsie
+  - Tiger
+  - Prince Sourpuss
+  - Miss Flufferton
+  - Fish Sticks
+  - Clawsby
+  - Mr Shakespaw
+  - Catpernicus
+  - Clawdia
+  - Catserole
   LowPrioStrings:
-  - Meow!
-  - Me.. ow UwU
+  - Meow, meow meow, meow.
+  - Me.. ow.. owo
+  - "Miaau... miau, maaa\xFC. Miaaau."
+  - Mja mja miaaaau.
   MediumPrioStrings:
-  - Meoew meow!
+  - Meoew meow! Meeeeeowwww!
+  - Nyaaaa, nyanyanyaa, nya. Nya.
+  - Miaaaooouu, miaou, ooooo.
+  - Mya, meoweow. Njau, mja, miaaau.
   HighPrioStrings:
   - MEOWWWW MEOW MEWWOWWOWO!
+  - MRRRRREEEEEEEUUUUUGH MIAAAAAAAAU HMPH MEEEOW!!
+  - MEOW!!! Meeeeeeeeaaaaaaaoooooow. AAAAOOOOOOW. MEEEEEOOOOOOOW!
+  - '*urk* Meeow... MMMMEOW!!'
+  - MRRRAAAAW. MYYEEEEOWW. MEEEAAAAUUUU. *retch*
   missionTimeToshowLowPrio: 20
   missionTimeToshowMediumPrio: 15
   managerCanvas: {fileID: 8931105651458538855}
