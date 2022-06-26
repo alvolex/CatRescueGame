@@ -20,15 +20,18 @@ public class UIClickedHandler : MonoBehaviour
     [SerializeField] private float minTimeBetweenCalls = 2f;
     [SerializeField] private float maxTimeBetweenCalls = 10f;
 
+    [SerializeField] private List<Sprite> catSprites;
+
     struct CatCall
     {
-        public Color Color;
+        /*public Color Color;*/
+        public Sprite CatSprite;
         public float TimeToCompleteMission;
         public GameObject objectContainingImage;
     }
 
     //Events
-    public delegate void UIEvent(float time, CallWithTimer newCall, Color catColor);
+    public delegate void UIEvent(float time, CallWithTimer newCall, /*Color catColor*/ Sprite catSprite);
     public UIEvent OnCallAnswered;
     
     private void Start()
@@ -52,10 +55,11 @@ public class UIClickedHandler : MonoBehaviour
 
         OnCallAnswered.Invoke(timeToCompleteMission, newCall, catColor);*/
         
-        newCall.SetCatImage(catInfo.Color);
+        /*newCall.SetCatImage(catInfo.Color);*/
+        newCall.SetCatImage(catInfo.CatSprite);
         newCall.HandleTimer(catInfo.TimeToCompleteMission);
 
-        OnCallAnswered.Invoke(catInfo.TimeToCompleteMission, newCall, catInfo.Color);
+        OnCallAnswered.Invoke(catInfo.TimeToCompleteMission, newCall, catInfo.CatSprite);
         recievingCallCanvas.gameObject.SetActive(false);
         
         Destroy(catInfo.objectContainingImage);
@@ -79,11 +83,13 @@ public class UIClickedHandler : MonoBehaviour
         GameObject incomingCatCallImage = Instantiate(incomingCallPrefab, callsQueueCanvas.transform, false);
         
         CatCall catCaller = new CatCall();
-        catCaller.Color = Random.ColorHSV();
+        /*catCaller.Color = Random.ColorHSV();*/
+        catCaller.CatSprite = catSprites[Random.Range(0, catSprites.Count)];
         catCaller.TimeToCompleteMission = Random.Range(10f, 20f);
         catCaller.objectContainingImage = incomingCatCallImage;
 
-        incomingCatCallImage.GetComponent<Image>().color = catCaller.Color;
+        /*incomingCatCallImage.GetComponent<Image>().color = catCaller.Color;*/
+        incomingCatCallImage.GetComponent<Image>().sprite = catCaller.CatSprite;
 
         CallsQueue.Enqueue(catCaller);
 

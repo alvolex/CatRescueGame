@@ -17,7 +17,8 @@ public class CallEvent : MonoBehaviour
             copCar.IsHelping();
             copCar.CurrentCall = CallThatIsConnectedToThis;
             copCar.bIsHelpingSomeone = true;
-            
+            copCar.agent.ResetPath();
+
             CallThatIsConnectedToThis.StopTimer(); //Make sure that the UI timer on the left side of the screen stops when the car hits the event area
             
             Destroy(gameObject);
@@ -36,11 +37,12 @@ public class CallEvent : MonoBehaviour
         Destroy(gameObject);
     }
     
-    public void SetCatImage(Color color)
+    public void SetCatImage(/*Color color*/ Sprite sprite)
     {
         if (catImage != null)
         {
-            catImage.color = color; 
+            /*catImage.color = color; */
+            catImage.sprite = sprite; 
         }
     }
 }
