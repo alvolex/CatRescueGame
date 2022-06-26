@@ -53,3 +53,4 @@ MonoBehaviour:
   - {fileID: 0}
   callEvent: {fileID: 6377595268926490634, guid: 36de40d2ea0f74b48b45428c994f7add, type: 3}
   uiClickedHandler: {fileID: 0}
+  amountOfCars: 5

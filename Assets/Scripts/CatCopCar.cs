@@ -144,7 +144,7 @@ public class CatCopCar : MonoBehaviour
     {
         bIsMovingToTarget = false;
         bIsPatrolling = false;
-        float timeToWait = UnityEngine.Random.Range(0, 5f);
+        float timeToWait = UnityEngine.Random.Range(0, 1.5f);
         yield return new WaitForSeconds(timeToWait);
         ReturnToHospital();
     }

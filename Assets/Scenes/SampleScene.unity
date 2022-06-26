@@ -160,16 +160,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!223 &184971847 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 7501965243698422962, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-  m_PrefabInstance: {fileID: 2945240042159909571}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &235292567 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2945240043306909648, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-  m_PrefabInstance: {fileID: 2945240042159909571}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &247716512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1364,10 +1354,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 701975722024876541, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: textTimer
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2945240042262397676, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
       propertyPath: m_Name
       value: GameUI
@@ -1456,30 +1442,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4039403740569717678, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_Name
-      value: ReceivingCall
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913459978472229522, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913459978472229522, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913459978472229522, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913459978472229522, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7397268511088979519, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
-      propertyPath: recievingCallCanvas
-      value: 
-      objectReference: {fileID: 184971847}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8627bb4b830b0a448a61584e6640d60, type: 3}
 --- !u!114 &2945240042159909572 stripped
@@ -1493,14 +1455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d099d41065c2b947bca3244eb3f0dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!222 &2945240042159909578
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235292567}
-  m_CullTransparentMesh: 1
 --- !u!1001 &8327939384264557220
 PrefabInstance:
   m_ObjectHideFlags: 0
