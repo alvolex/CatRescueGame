@@ -12,7 +12,6 @@ public enum CarActions
     Idle
 }
 
-
 public class CatCopCar : MonoBehaviour
 {
     public NavMeshAgent agent;
@@ -42,7 +41,10 @@ public class CatCopCar : MonoBehaviour
     public CarSelectedDelegate OnCarSelected; 
     
     public delegate void CarActionChanged(CarActions currentAction);
-    public CarActionChanged OnActionChanged; 
+    public CarActionChanged OnActionChanged;
+
+    public delegate void GainedPointsDelegate();
+    public GainedPointsDelegate OnGainedPoints;
 
     private void Start()
     {
@@ -79,6 +81,7 @@ public class CatCopCar : MonoBehaviour
                 bIsReturningToHospital = false;
                 bIsHelpingSomeone = false;
                 OnActionChanged?.Invoke(CarActions.Idle);
+                OnGainedPoints?.Invoke();
 
                 if (CurrentCall != null)
                 {

@@ -20,7 +20,7 @@ public class HandleCatCallingText : MonoBehaviour
     [SerializeField] private float missionTimeToshowLowPrio = 30f;
     [SerializeField] private float missionTimeToshowMediumPrio = 15f;
 
-    [SerializeField] private CanvasRenderer managerCanvas;
+    [SerializeField] private Manager managerCanvas;
 
     public void ShowCatSpeech(Sprite catInfoCatSprite, float catInfoTimeToCompleteMission)
     {
