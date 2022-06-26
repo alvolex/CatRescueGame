@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SuperCursedGameManager : MonoBehaviour
 {
@@ -12,19 +14,31 @@ public class SuperCursedGameManager : MonoBehaviour
     [SerializeField] private CallEvent callEvent;
 
     [SerializeField] private UIClickedHandler uiClickedHandler;
-    
+
+    [SerializeField] private int amountOfCars = 5;
 
     private Camera mainCamera;
 
     void Start()
     {
         Instantiate(WorldMap, Vector3.zero, Quaternion.identity);
-        Instantiate(CatCopCar, Vector3.zero, Quaternion.identity);
+        
+        CreateCars();
 
         mainCamera = Camera.main;
         
         //Subscribe to events
         uiClickedHandler.OnCallAnswered += OnCallAnswered;
+    }
+
+    private void CreateCars()
+    {
+        
+        Debug.Log("Hello?");
+        for (int i = 0; i < amountOfCars; i++)
+        {
+            Instantiate(CatCopCar, Vector3.zero, Quaternion.identity);
+        }
     }
 
     // Update is called once per frame
