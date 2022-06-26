@@ -5,9 +5,17 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
+public enum CarActions
+{
+    MovingToTarget,
+    IsHelpingSomeone,
+    Idle
+}
+
+
 public class CatCopCar : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     private Vector3 targetDest;
 
     private bool bIsMovingToTarget = false;
@@ -29,8 +37,11 @@ public class CatCopCar : MonoBehaviour
     public bool bIsHelpingSomeone { get; set; } = false;
     
     //create event without parameters
-    public delegate void CarSelectedDelegate();
+    public delegate void CarSelectedDelegate(bool bIsHighlighted);
     public CarSelectedDelegate OnCarSelected; 
+    
+    public delegate void CarActionChanged(CarActions currentAction);
+    public CarActionChanged OnActionChanged; 
 
     private void Start()
     {
@@ -52,8 +63,13 @@ public class CatCopCar : MonoBehaviour
 
     private void ShouldReturnToHospital()
     {
-        if (bIsReturningToHospital)
+        if (bIsReturningToHospital /*|| bIsHelpingSomeone*/)
         {
+            bIsMovingToTarget = false;
+            bIsPatrolling = false;
+            
+            targetDest = hospitalPosition;
+            agent.SetDestination(targetDest);
             float distance = Vector3.Distance(transform.position, targetDest);
             if (distance < 1)
             {
@@ -61,6 +77,7 @@ public class CatCopCar : MonoBehaviour
                 bIsPatrolling = false;
                 bIsReturningToHospital = false;
                 bIsHelpingSomeone = false;
+                OnActionChanged?.Invoke(CarActions.Idle);
 
                 if (CurrentCall != null)
                 {
@@ -86,8 +103,9 @@ public class CatCopCar : MonoBehaviour
 
     private void ShouldReturnAfterPatrol()
     {
-        if (bIsPatrolling)
+        if (bIsPatrolling/* || bIsHelpingSomeone*/)
         {
+            bIsMovingToTarget = false;
             framCounter++;
             if (framCounter % 5 == 0)
             {
@@ -102,6 +120,11 @@ public class CatCopCar : MonoBehaviour
         float distance = Vector3.Distance(transform.position, targetDest);
         if (distance < 1)
         {
+            if (!bIsHelpingSomeone)
+            {
+                OnActionChanged?.Invoke(CarActions.Idle);
+            }
+            
             bIsMovingToTarget = false;
             bIsPatrolling = false;
             
@@ -115,6 +138,8 @@ public class CatCopCar : MonoBehaviour
     {
         if (bIsMovingToTarget)
         {
+            OnActionChanged?.Invoke(CarActions.MovingToTarget);
+            
             framCounter++;
 
             if (framCounter % 5 == 0)
@@ -153,10 +178,12 @@ public class CatCopCar : MonoBehaviour
 
     IEnumerator HelpInjured()
     {
+        OnActionChanged?.Invoke(CarActions.IsHelpingSomeone);
         bIsMovingToTarget = false;
         bIsPatrolling = false;
         float timeToWait = UnityEngine.Random.Range(0, 1.5f);
         yield return new WaitForSeconds(timeToWait);
+        bIsReturningToHospital = true;
         ReturnToHospital();
     }
     
@@ -177,6 +204,6 @@ public class CatCopCar : MonoBehaviour
     public void SetIsHighlighted(bool bIsHighlighted)
     {
         highlighSprite.gameObject.SetActive(bIsHighlighted);
-        OnCarSelected.Invoke();
+        OnCarSelected.Invoke(bIsHighlighted);
     }
 }

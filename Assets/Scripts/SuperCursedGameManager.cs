@@ -76,6 +76,11 @@ public class SuperCursedGameManager : MonoBehaviour
             {
                 if (hit.collider.TryGetComponent(out CatCopCar copCar))
                 {
+                    if (CurrentlySelectedCopCar )
+                    {
+                        CurrentlySelectedCopCar.SetIsHighlighted(false); 
+                    }
+                    
                     CurrentlySelectedCopCar = copCar;
                     CurrentlySelectedCopCar.SetIsHighlighted(true);
                 }

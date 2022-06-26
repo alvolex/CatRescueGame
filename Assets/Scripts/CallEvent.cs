@@ -17,7 +17,8 @@ public class CallEvent : MonoBehaviour
             copCar.IsHelping();
             copCar.CurrentCall = CallThatIsConnectedToThis;
             copCar.bIsHelpingSomeone = true;
-            
+            copCar.agent.ResetPath();
+
             CallThatIsConnectedToThis.StopTimer(); //Make sure that the UI timer on the left side of the screen stops when the car hits the event area
             
             Destroy(gameObject);

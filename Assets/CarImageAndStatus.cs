@@ -10,6 +10,7 @@ public class CarImageAndStatus : MonoBehaviour
     [SerializeField] private Image carImage;
     
     [SerializeField] private Image highlightImage;
+    [SerializeField] private Image carAction;
     
     public delegate void CarImageClickedDelegate(CatCopCar car);
     public CarImageClickedDelegate OnCarImageClicked; 
@@ -29,10 +30,29 @@ public class CarImageAndStatus : MonoBehaviour
     {
         CarRef = car;
         car.OnCarSelected += HighlightImage;
+        car.OnActionChanged += UpdateActionStatus;
     }
 
-    private void HighlightImage()
+    private void UpdateActionStatus(CarActions currentaction)
     {
-        highlightImage.gameObject.SetActive(!highlightImage.gameObject.activeSelf);
+        switch (currentaction)
+        {
+            case CarActions.MovingToTarget:
+                carAction.color = Color.green;
+                break;
+            case CarActions.IsHelpingSomeone:
+                carAction.color = Color.red;
+                break;
+            case CarActions.Idle:
+                carAction.color = Color.white;
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void HighlightImage(bool bIsHighlighted)
+    {
+        highlightImage.gameObject.SetActive(bIsHighlighted);
     }
 }
