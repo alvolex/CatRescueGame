@@ -30,7 +30,7 @@ public class SuperCursedGameManager : MonoBehaviour
 
     private Camera mainCamera;
 
-    /*void Start()
+    void Start()
     {
         Instantiate(WorldMap, new Vector3(3,0,0), Quaternion.identity);
         CreateCars();
@@ -39,7 +39,7 @@ public class SuperCursedGameManager : MonoBehaviour
         
         //Subscribe to events
         uiClickedHandler.OnCallAnswered += OnCallAnswered;
-    }*/
+    }
 
     private void CreateCars()
     {
