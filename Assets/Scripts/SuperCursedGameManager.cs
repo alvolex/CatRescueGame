@@ -56,11 +56,12 @@ public class SuperCursedGameManager : MonoBehaviour
         }
     }
     
-    private void OnCallAnswered(float time, CallWithTimer callWithTimer)
+    private void OnCallAnswered(float time, CallWithTimer callWithTimer, Color catColor)
     {
         int index = Random.Range(0, EventPositions.Count);
-        CallEvent call = Instantiate(callEvent, EventPositions[index].transform.position, Quaternion.identity);
-        call.CallThatIsConnectedToThis = callWithTimer;
-        call.DestroyAfterTime(time);
+        CallEvent eventInWorld = Instantiate(callEvent, EventPositions[index].transform.position, Quaternion.identity);
+        eventInWorld.SetCatImage(catColor);
+        eventInWorld.CallThatIsConnectedToThis = callWithTimer;
+        eventInWorld.DestroyAfterTime(time);
     }
 }

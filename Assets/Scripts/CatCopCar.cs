@@ -13,6 +13,7 @@ public class CatCopCar : MonoBehaviour
     private bool bIsMovingToTarget = false;
     private bool bIsPatrolling = false;
     private bool bDrawPath = false;
+    private bool bIsReturningToHospital = false;
 
     private LineRenderer line;
 
@@ -20,7 +21,9 @@ public class CatCopCar : MonoBehaviour
     [SerializeField] private Vector3 hospitalPosition = Vector3.zero;
 
     [SerializeField]private List<Vector3> RandomPositionsToPatrolTo;
-    
+
+    public CallWithTimer CurrentCall { get; set; }
+    public bool bIsHelpingSomeone { get; set; } = false;
 
     private void Start()
     {
@@ -32,6 +35,23 @@ public class CatCopCar : MonoBehaviour
     {
         ShouldStartPatrolling();
         ShouldReturnAfterPatrol();
+
+        if (bIsReturningToHospital)
+        {
+            float distance = Vector3.Distance(transform.position, targetDest);
+            if (distance < 1)
+            {
+                bIsMovingToTarget = false;
+                bIsPatrolling = false;
+                bIsReturningToHospital = false;
+                bIsHelpingSomeone = false;
+
+                if (CurrentCall != null)
+                {
+                    Destroy(CurrentCall.gameObject);
+                }
+            }
+        }
 
         if (bDrawPath)
         {
@@ -73,8 +93,10 @@ public class CatCopCar : MonoBehaviour
         {
             bIsMovingToTarget = false;
             bIsPatrolling = false;
-
+            
             agent.SetDestination(hospitalPosition);
+            targetDest = hospitalPosition;
+            bIsReturningToHospital = true;
         }
     }
 
