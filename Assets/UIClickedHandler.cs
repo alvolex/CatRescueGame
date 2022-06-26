@@ -7,18 +7,21 @@ using Random = UnityEngine.Random;
 
 public class UIClickedHandler : MonoBehaviour
 {
-    
     [SerializeField] private CallWithTimer callWithTimerPrefab;
     [SerializeField] private GameObject incomingCallPrefab;
 
     [SerializeField] private Canvas callsCanvas;
     [SerializeField] private Canvas recievingCallCanvas;
     [SerializeField] private Canvas callsQueueCanvas;
-    
+    [SerializeField] private HandleCatCallingText callTextCanvas;
+
     Queue<CatCall> CallsQueue = new Queue<CatCall>();
 
     [SerializeField] private float minTimeBetweenCalls = 2f;
     [SerializeField] private float maxTimeBetweenCalls = 10f;
+    
+    [SerializeField] private float minTimeToFinishMission = 10f;
+    [SerializeField] private float maxTimeToFinishMission = 35f;
 
     [SerializeField] private List<Sprite> catSprites;
 
@@ -45,8 +48,7 @@ public class UIClickedHandler : MonoBehaviour
         //Create UI Element for the call
         CallWithTimer newCall = Instantiate(callWithTimerPrefab, callsCanvas.transform, false);
         var catInfo = CallsQueue.Dequeue();
-        
-        //Random color, this will later be a random cat image todo change this to be a random cat image
+
         /*var catColor = Random.ColorHSV();
         float timeToCompleteMission = Random.Range(10f, 20f);
         
@@ -62,6 +64,9 @@ public class UIClickedHandler : MonoBehaviour
         OnCallAnswered.Invoke(catInfo.TimeToCompleteMission, newCall, catInfo.CatSprite);
         recievingCallCanvas.gameObject.SetActive(false);
         
+        //Show text for the call
+        callTextCanvas.ShowCatSpeech(catInfo.CatSprite, catInfo.TimeToCompleteMission);
+
         Destroy(catInfo.objectContainingImage);
 
         //Get next call straight away if there is one
@@ -85,7 +90,7 @@ public class UIClickedHandler : MonoBehaviour
         CatCall catCaller = new CatCall();
         /*catCaller.Color = Random.ColorHSV();*/
         catCaller.CatSprite = catSprites[Random.Range(0, catSprites.Count)];
-        catCaller.TimeToCompleteMission = Random.Range(10f, 20f);
+        catCaller.TimeToCompleteMission = Random.Range(minTimeToFinishMission, maxTimeToFinishMission);
         catCaller.objectContainingImage = incomingCatCallImage;
 
         /*incomingCatCallImage.GetComponent<Image>().color = catCaller.Color;*/
