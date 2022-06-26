@@ -50,6 +50,20 @@ public class CatCopCar : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         line = GetComponent<LineRenderer>();
+
+        StartCoroutine(StartPatrolling());
+    }
+
+    IEnumerator StartPatrolling()
+    {
+        yield return new WaitForSeconds(UnityEngine.Random.Range(5, 45));
+
+        if (!bIsHelpingSomeone)
+        {
+            bIsMovingToTarget = true;
+        }
+        
+        StartCoroutine(StartPatrolling());
     }
 
     private void Update()
