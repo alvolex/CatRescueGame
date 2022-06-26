@@ -20,7 +20,7 @@ public class Manager : MonoBehaviour
     public void RestartText(string text)
     {
         var rectTransform = gameObject.GetComponent<RectTransform>();
-        rectTransform.SetPositionAndRotation(new Vector3(500,200,0), Quaternion.identity);
+        rectTransform.localPosition = new Vector3(0,0,0);
 
         gameObject.SetActive(true);
         button.gameObject.SetActive(true);
