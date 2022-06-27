@@ -31,6 +31,7 @@ public class SuperCursedGameManager : MonoBehaviour
 
     [SerializeField] private int score = 0;
     [SerializeField] private int customersDelivered = 0;
+    [SerializeField] private int customersMissed = 0;
 
     private Camera mainCamera;
 
@@ -44,12 +45,15 @@ public class SuperCursedGameManager : MonoBehaviour
         //Subscribe to events
         uiClickedHandler.OnCallAnswered += OnCallAnswered;
         uiClickedHandler.OnLostCustomer += OnLostPoints;
+
+        StartCoroutine(GameWon());
     }
 
     IEnumerator GameWon()
     {
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(4*60);
         
+        managerCanvas.RestartText("Well done, a purr-fect day!\n" + "You delivered " + customersDelivered + " customers and failed to help " + customersMissed +". \n" + "(Press the button to restart)");
     }
 
     private void CreateCars()
@@ -77,6 +81,7 @@ public class SuperCursedGameManager : MonoBehaviour
     private void OnLostPoints()
     {
         score--;
+        customersMissed++;
 
         if (score < 0)
         {
