@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using TMPro;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
@@ -33,6 +34,9 @@ public class SuperCursedGameManager : MonoBehaviour
     [SerializeField] private int customersDelivered = 0;
     [SerializeField] private int customersMissed = 0;
 
+    [SerializeField] private TextMeshProUGUI gameCountdown;
+    private bool bGameOver = false;
+
     private Camera mainCamera;
 
     void Start()
@@ -51,9 +55,26 @@ public class SuperCursedGameManager : MonoBehaviour
 
     IEnumerator GameWon()
     {
-        yield return new WaitForSeconds(4*60);
-        
-        managerCanvas.RestartText("Well done, a purr-fect day!\n" + "You delivered " + customersDelivered + " customers and failed to help " + customersMissed +". \n" + "(Press the button to restart)");
+        //yield return new WaitForSeconds(4*60);
+        float elapsedTime = 0;
+        float timeToWait = 4*60;
+
+        while (elapsedTime < timeToWait)
+        {
+            elapsedTime += Time.deltaTime;
+            var minutes = Mathf.FloorToInt((timeToWait - elapsedTime) / 60);
+            var seconds = Mathf.FloorToInt((timeToWait - elapsedTime) % 60);
+            
+            gameCountdown.text = $"{minutes:00}:{seconds:00}";
+            yield return null;
+        }
+
+        if (!bGameOver)
+        {
+            uiClickedHandler.StopRecievingCalls();
+            managerCanvas.RestartText("Well done, a purr-fect day!\n" + "You delivered " + customersDelivered + " customers and failed to help " + customersMissed +". \n" + "(Press the button to restart)");
+            bGameOver = true;
+        }
     }
 
     private void CreateCars()
@@ -83,11 +104,12 @@ public class SuperCursedGameManager : MonoBehaviour
         score--;
         customersMissed++;
 
-        if (score < 0)
+        if (score < 0 && !bGameOver)
         {
             //Game over
             uiClickedHandler.StopRecievingCalls();
             managerCanvas.RestartText("You disappoint meow..!\n" + "You delivered " + customersDelivered + " customers..\n" + "(Press the checkmark if you'd like to try again.)");
+            bGameOver = true;
         }
     }
 
