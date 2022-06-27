@@ -63,6 +63,7 @@ public class SuperCursedGameManager : MonoBehaviour
 
     private void OnGainedPoints()
     {
+        Debug.LogError("Point!");
         score++;
         customersDelivered++;
     }
