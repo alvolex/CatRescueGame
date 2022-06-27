@@ -114,7 +114,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 20.307373, y: 0.00024414062}
-  m_SizeDelta: {x: 194.6926, y: 43.669403}
+  m_SizeDelta: {x: 246.9542, y: 43.6694}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4074244149154066557
 CanvasRenderer:
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Manager Kat Stevens '
+  m_text: New text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8bdb7399c06770c48a9b33ab8ae7481d, type: 2}
   m_sharedMaterial: {fileID: 75518775600577893, guid: 8bdb7399c06770c48a9b33ab8ae7481d, type: 2}

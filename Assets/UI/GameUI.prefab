@@ -1562,6 +1562,14 @@ PrefabInstance:
       propertyPath: m_text
       value: New Text
       objectReference: {fileID: 0}
+    - target: {fileID: 4016556696074314018, guid: f772f3f3916fc6a489fa56784016c77a, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 75518775600577893, guid: 8bdb7399c06770c48a9b33ab8ae7481d, type: 2}
+    - target: {fileID: 4016556696074314018, guid: f772f3f3916fc6a489fa56784016c77a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5879717830539885465, guid: f772f3f3916fc6a489fa56784016c77a, type: 3}
       propertyPath: m_Name
       value: UI box
