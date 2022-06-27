@@ -46,6 +46,12 @@ public class SuperCursedGameManager : MonoBehaviour
         uiClickedHandler.OnLostCustomer += OnLostPoints;
     }
 
+    IEnumerator GameWon()
+    {
+        yield return new WaitForSeconds(30);
+        
+    }
+
     private void CreateCars()
     {
         for (int i = 0; i < amountOfCars; i++)
@@ -63,6 +69,7 @@ public class SuperCursedGameManager : MonoBehaviour
 
     private void OnGainedPoints()
     {
+        Debug.LogError("Point!");
         score++;
         customersDelivered++;
     }
